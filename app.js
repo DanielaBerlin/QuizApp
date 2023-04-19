@@ -15,5 +15,22 @@ class Quiz {
         }
         this.questionIndex++;
     }
-    
+
+    isEnded() {
+        return this.questionIndex === this.questions.length;
+    }
+}
+
+//QUESTION CLASS
+class question {
+    constructor(text, choices, answer) {
+        this.text = text;
+        this.choices = choices;
+        this.answer = answer;
+    }
+
+    isCorrectAnswer(choice) {
+        return this.answer === choice;
+    }
+
 }

@@ -67,3 +67,11 @@ function guess(id, guess) {
 }
 
 //SHOW quiz progress
+
+function showProgress() {
+    let currentQuestionNumber = quiz.questionIndex + 1;
+    let progressElement = document.getElementById("progress");
+    progressElement.innerHTML = 
+    `Question ${currentQuestionNumber} of ${quiz.question.length}`;
+}
+

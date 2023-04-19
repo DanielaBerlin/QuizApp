@@ -51,5 +51,19 @@ function displayQuestion() {
       choiceElement.innerHTML = choices[i];
       guess('btn' + i, choices[i]);
     }
+
+    showProgress();
   }
+};
+
+//GUESS FUNCTION
+
+function guess(id, guess) {
+    let button = document.getElementById(id);
+    button.onclick = function() {
+        quiz.guess(guess);
+        displayQuestion();
+    }
 }
+
+//SHOW quiz progress

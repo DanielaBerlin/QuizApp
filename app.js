@@ -7,7 +7,7 @@ class Quiz {
   }
 
   getQuestionIndex() {
-    return this.questions[this.getQuestionIndex];
+    return this.questions[this.questionIndex];
   }
   guess(answer) {
     if (this.getQuestionIndex().isCorrectAnswer(answer)) {
@@ -22,7 +22,7 @@ class Quiz {
 }
 
 //QUESTION CLASS
-class question {
+class Question {
   constructor(text, choices, answer) {
     this.text = text;
     this.choices = choices;
@@ -37,7 +37,7 @@ class question {
 //DISPLAY QUESTION
 
 function displayQuestion() {
-  if (Quiz.isEnded()) {
+  if (quiz.isEnded()) {
     showScores();
   } else {
     //show question
@@ -54,37 +54,69 @@ function displayQuestion() {
 
     showProgress();
   }
-};
+}
 
 //GUESS FUNCTION
 
 function guess(id, guess) {
-    let button = document.getElementById(id);
-    button.onclick = function() {
-        quiz.guess(guess);
-        displayQuestion();
-    }
+  let button = document.getElementById(id);
+  button.onclick = function () {
+    quiz.guess(guess);
+    displayQuestion();
+  };
 }
 
 //SHOW quiz progress
 
 function showProgress() {
-    let currentQuestionNumber = quiz.questionIndex + 1;
-    let progressElement = document.getElementById("progress");
-    progressElement.innerHTML = 
-    `Question ${currentQuestionNumber} of ${quiz.question.length}`;
+  let currentQuestionNumber = quiz.questionIndex + 1;
+  let progressElement = document.getElementById('progress');
+  progressElement.innerHTML = `Question ${currentQuestionNumber} of ${quiz.questions.length}`;
 }
 
 //SHOW SCORE
 function showScores() {
-    let quizEndHTML = 
-    `
+  let quizEndHTML = `
         <h1>Quiz Completed</h1> 
-        <h2 id="score">You Scored: ${quiz.score} of ${quiz.question.length} </h2>
+        <h2 id="score">You Scored: ${quiz.score} of ${quiz.questions.length} </h2>
         <div class="quiz-repeat">
             <a href="index.html">Take Quiz Again</a>
         </div>
     `;
-    let quizElement = document.getElementById("quiz");
-    quizElement.innerHTML = quizEndHTML;
+  let quizElement = document.getElementById('quiz');
+  quizElement.innerHTML = quizEndHTML;
 }
+
+//CREATE QUIZ QUESTIONS
+let questions = [
+  new Question(
+    'Hyper Text Markup Language Stands For?',
+    ['JQUERY', 'XHTML', 'CSS', 'HTML'],
+    'HTML'
+  ),
+  new Question(
+    'Cascading Style Sheet Stands For?',
+    ['JQUERY', 'XHTML', 'CSS', 'HTML'],
+    'CSS'
+  ),
+  new Question(
+    'Which is a JavaScript Framework?',
+    ['React', 'Laravel', 'Django', 'Sass'],
+    'React'
+  ),
+  new Question(
+    'Which is a Backend Language?',
+    ['PHP', 'HTML', 'React', 'All'],
+    'PHP'
+  ),
+  new Question(
+    'Which is Better for Artificial Intelligence?',
+    ['React', 'HTML', 'Phyton', 'Django'],
+    'Phyton'
+  ),
+];
+
+let quiz = new Quiz(questions);
+
+//display question
+displayQuestion();

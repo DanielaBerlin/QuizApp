@@ -33,10 +33,10 @@ Contributions from the students and educators of the Software Engineering Princi
 5. Commit your changes with descriptive commit messages: `git commit -m "Add new quiz questions for Unit 7"`.
 6. Push your changes to your forked repository: `git push origin feature/new-feature`.
 7. Open a pull request on the main QuizApp repository, explaining the purpose and details of your contribution.
-8. Engage in discussions and address any feedback or suggestions provided by the project maintainers.
+8. Engage in discussions and address any feedback or suggestions provided.
 9. Once your contribution is reviewed and approved, it will be merged into the main repository.
 
-I appreciate your involvement in enhancing QuizApp and creating a valuable resource for the software engineering community at IU 🤗.
+🎉 I appreciate your involvement in enhancing QuizApp and creating a valuable resource for the software engineering community at IU 🤗.
 
 ## License
 

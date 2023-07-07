@@ -12,8 +12,17 @@ class Quiz {
   guess(answer) {
     if (this.getQuestionIndex().isCorrectAnswer(answer)) {
       this.score++;
+      if (this.isEnded()) {
+        showScores();
+      } else {
+        displayQuestion();
+      }
+    } else {
+      let answerElement = document.getElementById('right-answer');
+      answerElement.innerHTML = this.getQuestionIndex().answer;
+      let nextButton = document.getElementById('btn-next');
+      nextButton.style.display = 'block';
     }
-    this.questionIndex++;
   }
 
   isEnded() {
@@ -37,7 +46,6 @@ class Question {
   showCorrectAnswer(choice) {
     let answerElement = document.getElementById('right-answer');
     answerElement.innerHTML = this.answer;
-    return this.answer !== choice ? answerElement : null;
   }
 }
 
@@ -73,6 +81,13 @@ function guess(id, guess) {
   };
 }
 
+// Next Question
+
+function nextQuestion() {
+  quiz.questionIndex++;
+  displayQuestion();
+}
+
 //SHOW quiz progress
 
 function showProgress() {
@@ -93,7 +108,6 @@ function showScores() {
   let quizElement = document.getElementById('quiz');
   quizElement.innerHTML = quizEndHTML;
 }
-
 
 //CREATE QUIZ QUESTIONS
 let questions = [

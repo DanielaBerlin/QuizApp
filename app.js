@@ -30,7 +30,14 @@ class Question {
   }
 
   isCorrectAnswer(choice) {
+    this.showCorrectAnswer(choice);
     return this.answer === choice;
+  }
+
+  showCorrectAnswer(choice) {
+    let answerElement = document.getElementById('right-answer');
+    answerElement.innerHTML = this.answer;
+    return this.answer !== choice ? answerElement : null;
   }
 }
 
@@ -86,6 +93,7 @@ function showScores() {
   let quizElement = document.getElementById('quiz');
   quizElement.innerHTML = quizEndHTML;
 }
+
 
 //CREATE QUIZ QUESTIONS
 let questions = [
@@ -416,13 +424,168 @@ let questions = [
   ),
   new Question(
     'Which of the following is not a typical role in software engineering?',
-    [
-      'tester',
-      'risk architect',
-      'project manager',
-      'software architect',
-    ],
+    ['tester', 'risk architect', 'project manager', 'software architect'],
     'risk architect'
+  ),
+  new Question(
+    'Which of the following provides blueprints for specific software process models?',
+    [
+      'process paradigms',
+      'software process model frameworks',
+      'software process models',
+      'software processes',
+    ],
+    'software process model frameworks'
+  ),
+  new Question(
+    'In Royce´s waterfall model, analysis is followed by …',
+    [
+      '... coding',
+      '… program design.',
+      '… testing.',
+      '… software requirements.',
+    ],
+    '… program design.'
+  ),
+  new Question(
+    'In Boehm´s V-model, the system design is verified by …',
+    [
+      '… acceptance tests.',
+      '… module and unit tests.',
+      '… sub-system integration tests.',
+      '… system integration tests.',
+    ],
+    '… system integration tests.'
+  ),
+  new Question(
+    'An evolution cycle integration of the new functions into the existing system is typically followed by …',
+    [
+      '… identifying and specifying all system requirements.',
+      '… determination of which functions are to be implemented in this cycle.',
+      '… implementation of the functions.',
+      '… testing and evaluating the current software version.',
+    ],
+    '… testing and evaluating the current software version.'
+  ),
+  new Question(
+    'Which of the following is not an example of a software process model framework?',
+    [
+      'Scrum',
+      'Rational Unified Process (RUP)',
+      'Waterfall model',
+      'V-Modell XT',
+    ],
+    'Waterfall model'
+  ),
+  new Question(
+    'Which of the following is not a project type in V-Modell XT?',
+    [
+      'contractor project',
+      'client and contractor in the same organization',
+      'neither client, nor contractor project',
+      'client project',
+    ],
+    'neither client, nor contractor project'
+  ),
+  new Question(
+    'Which of the following is not defined as a V-Modell XT process module?',
+    ['results', 'tools', 'tasks', 'roles'],
+    'tools'
+  ),
+  new Question(
+    'In RUP, the implementation activities are followed by …',
+    ['… elaboration.', '… transition.', '… inception.', '… construction.'],
+    '… transition.'
+  ),
+  new Question(
+    'In Scrum, ensuring that the time and organizational requirements in a Scrum cycle are adhered to by all people involved is a responsibility of the …',
+    [
+      '… Product Owner.',
+      '… Project Manager.',
+      '… Scrum master.',
+      '… whole Scrum team.',
+    ],
+    '… Scrum master.'
+  ),
+  new Question(
+    'Which of the following is not a typical role in Scrum?',
+    ['Team.', 'Scrum Master', 'Product Designer', 'Product Owner'],
+    'Product Designer'
+  ),
+  new Question(
+    'Which statement about test levels is correct?',
+    [
+      'The test stages are installation, acceptance and commissioning.',
+      'Test activities can begin as soon as more than one software artifact has been generated.',
+      'Test levels in software quality management depend on the industry and company.',
+      'The system to be manufactured should go through all test levels.',
+    ],
+    'The system to be manufactured should go through all test levels'
+  ),
+  new Question(
+    'Which statement about test levels is correct?',
+    [
+      'The test stages are installation, acceptance and commissioning.',
+      'Test activities can begin as soon as more than one software artifact has been generated.',
+      'Test levels in software quality management depend on the industry and company.',
+      'The system to be manufactured should go through all test levels.',
+    ],
+    'The system to be manufactured should go through all test levels'
+  ),
+  new Question(
+    'When implementing enterprise software systems ...',
+    [
+      'the software architect should only be involved in professional but not technical questions.',
+      'the software architect is the first point of contact for software developers for technical questions',
+      'the software architect is no longer responsible.',
+      'the software architect is by no means actively involved.',
+    ],
+    'the software architect is the first point of contact for software developers for technical questions.'
+  ),
+  new Question(
+    'Requirements Engineering …',
+    [
+      'is a constructive, sequential process.',
+      'is a structured sequence of the phases planning, operation and shutdown.',
+      'is a cyclical process that provides a maximum of three iterations.',
+      'is a cooperative, iterative, incremental process.',
+    ],
+    'is a cooperative, iterative, incremental process.'
+  ),
+  new Question(
+    'A release planning with a maximum of three release dates per year …',
+    [
+      'is sufficiently flexible to react to changed business requirements.',
+      'is also called continuous integration.',
+      'can have a negative impact on the security of the IT infrastructure.',
+      'generally increases the satisfaction of the business units with regard to IT support.',
+    ],
+    'can have a negative impact on the security of the IT infrastructure.'
+  ),
+  new Question(
+    'In a Scrum project, the team is currently presenting its results to the stakeholders. In which Scrum phase is the current Scrum Sprint?',
+    ['Sprint', 'Sprint Review', 'Sprint Planning', 'Sprint Retrospective.'],
+    'Sprint Review.'
+  ),
+  new Question(
+    'For the development project, it was agreed that after the architecture description has been completed, compliance with the required modeling language and the correct use of the notation elements will be checked. This procedure is …',
+    [
+      'no quality assurance measure.',
+      'an organizational measure within the framework of constructive QM.',
+      'a dynamic test as part of the analytical QM.',
+      'a technical measure within the framework of constructive QM.',
+    ],
+    'an organizational measure within the framework of constructive QM.'
+  ),
+  new Question(
+    'Documentation of IT architectures with simple sketches or PowerPoint graphics …',
+    [
+      'is quickly made and is also correctly and completely understood by people outside of the creation process.',
+      'should be used very carefully for first versions and ideas, as the result is not suitable for all people.',
+      'is highly recommended as there are no risks either during creation or later use.',
+      'is not suitable for the first versions and ideas, but for the more mature versions.',
+    ],
+    ' should be used very carefully for first versions and ideas, as the result is not suitable for all people.'
   ),
 ];
 
@@ -433,24 +596,24 @@ displayQuestion();
 
 //ADD A COUNTDOWN
 
-let time = 10;
+let time = 30;
 let quizTimeInMinutes = time * 60 * 60;
 quizTime = quizTimeInMinutes / 60;
 
-let counting = document.getElementById("count-down");
+let counting = document.getElementById('count-down');
 
 function startCountdown() {
-    let quizTimer = setInterval(function() {
-        if (quizTime <= 0) {
-            clearInterval(quizTimer);
-            showScores();
-        } else {
-        quizTime--;
-        let sec = Math.floor(quizTime % 60);
-        let min = Math.floor(quizTime / 60) % 60;
-        counting.innerHTML = `TIME: ${min} : ${sec}`;
-        }
-    }, 1000)
+  let quizTimer = setInterval(function () {
+    if (quizTime <= 0) {
+      clearInterval(quizTimer);
+      showScores();
+    } else {
+      quizTime--;
+      let sec = Math.floor(quizTime % 60);
+      let min = Math.floor(quizTime / 60) % 60;
+      counting.innerHTML = `TIME: ${min} : ${sec}`;
+    }
+  }, 1000);
 }
 
 startCountdown();

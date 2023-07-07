@@ -42,4 +42,4 @@ Contributions from the students and educators of the Software Engineering Princi
 
 QuizApp is released under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the application in accordance with the terms of the license.
 
-## Let's ace the Software Engineering Principles exam together with QuizApp!
+## 🏆Let's ace the Software Engineering Principles exam together with QuizApp! 🙌🏾
